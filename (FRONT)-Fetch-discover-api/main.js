@@ -8,7 +8,7 @@ function getUsers() {
 }
 
 function getUser() {
-  fetch(`${url}/1`)
+  fetch(`${url}/16`) // Muda o id pra ver na tela
     .then( response => response.json())
     .then( data => {
       UserName.textContent = data.name;
@@ -18,6 +18,26 @@ function getUser() {
     .catch( error => console.error(error) );
 }
 
+function addUser(newUser) {
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(newUser),
+    headers: {
+      "Content-type": "application/json; charset=utf-8"
+    }
+  }) // Está é a request
+  .then(response => response.json())
+  .then(data => alertApi.textContent = data)
+  .catch( error => console.error(error) );
+}
+
+const newUser = {
+  name: "Olivia Sars",
+  avatar: "https://picsum.photos/200/300",
+  city: "Rio do sul"
+}
+
+addUser(newUser)
 getUsers()
 getUser()
 
