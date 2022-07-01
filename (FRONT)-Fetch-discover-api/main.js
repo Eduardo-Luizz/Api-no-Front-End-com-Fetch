@@ -56,7 +56,18 @@ const updatedUser = {
   city: "Londres"
 }
 
-updateUser(updatedUser, 1)
-addUser(newUser)
+function deleteUser(id) {
+  fetch(`${url}/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json; charset=utf-8" }
+  })
+  .then( response => response.json() )
+  .then( data => alertApi.textContent = data)
+  .catch( error => console.error(error) )
+}
+
+// updateUser(updatedUser, 1)
+// addUser(newUser)
 getUsers()
 getUser()
+deleteUser(12)
