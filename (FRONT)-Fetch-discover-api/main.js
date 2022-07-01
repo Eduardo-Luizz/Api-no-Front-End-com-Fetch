@@ -7,4 +7,18 @@ function getUsers() {
     .catch( error => console.error(error) );          // Se erro .catch e retorna erro
 }
 
+function getUser() {
+  fetch(`${url}/1`)
+    .then( response => response.json())
+    .then( data => {
+      UserName.textContent = data.name;
+      UserCity.textContent = data.city;
+      userAvatar.src = data.avatar;
+    } )
+    .catch( error => console.error(error) );
+}
+
 getUsers()
+getUser()
+
+// 5,90 notas de 100 
