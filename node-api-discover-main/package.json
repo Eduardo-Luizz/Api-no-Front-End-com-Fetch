@@ -7,7 +7,7 @@
     "start": "nodemon ."
   },
   "keywords": [],
-  "author": "Jakeliny Gracielly",
+  "author": "Eduardo Luiz Zanotto",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
