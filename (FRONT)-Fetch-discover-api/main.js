@@ -37,8 +37,26 @@ const newUser = {
   city: "Rio do sul"
 }
 
+function updateUser(updatedUser, id) {
+  fetch(`${url}/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(updatedUser),
+    headers: {
+      "Content-type": "application/json; charset=utf-8"
+    }
+  })
+  .then( response => response.json() )
+  .then( data => alertApi.textContent = data)
+  .catch( error => console.error(error) )
+}
+
+const updatedUser = { 
+  name: "Marcelo 2",
+  avatar: "https://picsum.photos/200/300",
+  city: "Londres"
+}
+
+updateUser(updatedUser, 1)
 addUser(newUser)
 getUsers()
 getUser()
-
-// 5,90 notas de 100 
